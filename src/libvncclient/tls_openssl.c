@@ -452,10 +452,15 @@ HandleVeNCryptAuth(rfbClient* client)
 
   if (!InitializeTLS()) return FALSE;
 
+    rfbClientLog("BUBU openssl inited got vencrypt.\n");
+
+
   /* Read VeNCrypt version */
   if (!ReadFromRFBServer(client, (char *)&major, 1) ||
       !ReadFromRFBServer(client, (char *)&minor, 1))
   {
+    rfbClientLog("BUBU reading vencrypt version FAIL.\n");
+
     return FALSE;
   }
   rfbClientLog("Got VeNCrypt version %d.%d from server.\n", (int)major, (int)minor);
