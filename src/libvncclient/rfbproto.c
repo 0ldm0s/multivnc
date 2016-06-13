@@ -582,7 +582,7 @@ ReadSupportedSecurityType(rfbClient* client, uint32_t *result, rfbBool subAuth)
         if (flag) continue;
         if (tAuth[loop]==rfbVncAuth || tAuth[loop]==rfbNoAuth ||
             (tAuth[loop]==rfbARD && client->GetCredential) ||
-            (!subAuth && (tAuth[loop]==rfbTLS || (tAuth[loop]==rfbVeNCrypt && client->GetCredential))))
+            (!subAuth && (tAuth[loop]==rfbTLS )))
         {
             if (!subAuth && client->clientAuthSchemes)
             {
